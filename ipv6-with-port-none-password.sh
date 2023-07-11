@@ -93,8 +93,6 @@ IP4=$(curl -4 -s icanhazip.com)
 IP6=$(curl -6 -s icanhazip.com | cut -f1-7 -d':')
 
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
-echo "How many proxy do you want to create?"
-read COUNT
 while :; do
   read -p "Enter FIRST_PORT between 9000 and 50000: " FIRST_PORT
   [[ $FIRST_PORT =~ ^[0-9]+$ ]] || { echo "Enter a valid number"; continue; }
@@ -105,6 +103,8 @@ while :; do
     echo "Number out of range, try again"
   fi
 done
+echo "How many proxy do you want to create?"
+read COUNT
 LAST_PORT=$(($FIRST_PORT + COUNT))
 echo "LAST_PORT is $LAST_PORT. Continue..."
 
