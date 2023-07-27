@@ -16,7 +16,7 @@ gen64() {
 install_3proxy() {
     echo "installing 3proxy"
     URL="https://github.com/z3APA3A/3proxy/archive/3proxy-0.8.6.tar.gz"
-    wget -qO- $URL | bsdtar -xvf-
+    wget $URL 
     tar -xvf 3proxy-*
     cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
@@ -74,14 +74,8 @@ gen_ifconfig() {
 $(awk -F "/" '{print "ifconfig eth0 inet6 add " $5 "/64"}' ${WORKDATA})
 EOF
 }
-
-cat << EOF > /etc/rc.d/rc.local
-#!/bin/bash
-touch /var/lock/subsys/local
-EOF
-
 echo "installing apps"
-yum -y install wget gcc net-tools bsdtar zip >/dev/null
+yum -y install gcc net-tools bsdtar zip >/dev/null
 
 install_3proxy
 
@@ -129,4 +123,3 @@ gen_proxy_file_for_user
 rm -rf /root/3proxy-3proxy-0.8.6
 
 echo "Starting Proxy"
-
