@@ -96,9 +96,7 @@ while :; do
     echo "Number out of range, try again"
   fi
 done
-echo "How many proxy do you want to create?"
-read COUNT
-LAST_PORT=$(($FIRST_PORT + COUNT))
+LAST_PORT=$(($FIRST_PORT + 512))
 echo "LAST_PORT is $LAST_PORT. Continue..."
 
 gen_data >$WORKDIR/data.txt
