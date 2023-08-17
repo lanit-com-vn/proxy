@@ -13,9 +13,9 @@ gen64() {
 }
 install_3proxy() {
     echo "installing 3proxy"
-    URL="https://raw.githubusercontent.com/lanit-com-vn/proxy/main/3proxy-0.9.4.tar.gz"
+    URL="https://raw.githubusercontent.com/lanit-com-vn/proxy/main/3proxy-3proxy-0.8.6.tar.gz"
     wget -qO- $URL | bsdtar -xvf-
-    cd 3proxy-0.9.4
+    cd 3proxy-3proxy-0.8.6
     make -f Makefile.Linux
     mkdir -p /usr/local/etc/3proxy/bin
     mkdir -p /usr/local/etc/3proxy/logs
@@ -119,6 +119,6 @@ bash /etc/rc.local
 
 gen_proxy_file_for_user
 rm -rf /root/ipv6-with-port-none-password-64.sh
-rm -rf /root/3proxy-0.9.4.tar.gz
+rm -rf /root/3proxy-3proxy-0.8.6.tar.gz
 
 echo "Starting Proxy"
