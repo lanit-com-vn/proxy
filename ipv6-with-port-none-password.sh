@@ -129,8 +129,3 @@ gen_proxy_file_for_user
 rm -rf /root/3proxy-3proxy-0.8.6
 
 echo "Starting Proxy"
-
-download_proxy() {
-cd /home/lanit
-curl -F "file=@proxy.txt" https://file.io
-}
